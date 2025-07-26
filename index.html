@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Undian</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; margin-top: 50px; }
+    #hasil { font-size: 2em; margin-top: 30px; }
+  </style>
+</head>
+<body>
+  <h1>Undian Berhadiah 🎁</h1>
+  <button onclick="undi()">Mulai Undian</button>
+  <div id="hasil"></div>
+
+  <script>
+    async function undi() {
+      const url = "https://script.google.com/macros/s/AKf.../exec"; // Ganti dengan URL milikmu
+      const res = await fetch(url);
+      const data = await res.json();
+
+      const random = data[Math.floor(Math.random() * data.length)];
+      document.getElementById("hasil").innerHTML =
+        `🎉 Selamat kepada ${random.nama} (${random.nomor})`;
+    }
+  </script>
+</body>
+</html>
